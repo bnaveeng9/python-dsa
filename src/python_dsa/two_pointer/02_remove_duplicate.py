@@ -26,11 +26,26 @@ def remove_duplicates_in_list(arr: list[int] ) -> index:
             fast+=1
     return slow
 
-    
+
+def remove_duplicates_in_list_2(arr: list[int] ) -> index:
+    if len(arr) <=0:
+        return 0
+    arr.sort()
+
+    slow = 0 
+    fast = 0
+
+    for  fast in range( len(arr)):
+        if arr[slow] != arr[fast]:
+            slow+=1
+            arr[slow] =arr[fast]
+    return slow+1
+
+
 
 def stub_remove_duplicates_in_list(arr:list[int]):
     
-    index = remove_duplicates_in_list(arr)
+    index = remove_duplicates_in_list_2(arr)
     if index <=0:
         print("not found")
     else:
@@ -38,10 +53,11 @@ def stub_remove_duplicates_in_list(arr:list[int]):
         for x in range(index):
             print(x)
 
+
 if __name__ == "__main__":
     arr: list[int] = [0,0,0,1,2,3,1,2,3,1,2,3,4]
     stub_remove_duplicates_in_list(arr)
 
-    arr : list[int] = [0,1,1,2,2,3,4,5]
+    arr : list[int] = [0,0,1,1,1,2,2]
     stub_remove_duplicates_in_list(arr)
     

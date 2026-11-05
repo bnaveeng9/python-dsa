@@ -33,9 +33,29 @@ def stub_sum_of_two_numbers_to_target(arr:list[int], target: int):
         print(f"sum of {arr[l]} + {arr[r]} is equal : {target}")
         print(f"index of {l} + {r}")
 
+
+def is_palindrome(s: str) -> bool:
+    # WRITE YOUR BRILLIANT CODE 
+    s = s.replace(" ", "")
+    s = s.lower()
+    l,r = 0, len(s)-1
+
+    result = False
+
+    while l <r:
+        if s[l] == s[r]:
+            result = True
+            r-=1
+            l+=1
+        else:
+            result = False
+            
+    return result
         
 if __name__ == "__main__":
     arr: list[int] = [x for x in range(1,11)]
+
+    str = ""
 
 
     stub_sum_of_two_numbers_to_target(arr, 8)
